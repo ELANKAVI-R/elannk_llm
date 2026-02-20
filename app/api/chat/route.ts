@@ -6,15 +6,19 @@ export async function POST(req: Request) {
   const { messages }: { messages: UIMessage[] } = await req.json();
   console.log("Messages are ",messages)
   //TODO TASK 1
-const syscontext = `HOD available: 10:00am – 1:00pm
-Lunch break: 1:00pm – 2:00pm
-Cabin is on 2nd floor`;
+const syscontext=`we have two main entry gates for CEG 
+  1) kotturpuram entry
+  2) main gate entry
 
-const systemPrompt = `You are an assistant outside the HOD cabin,
-you ask students their purpose and allow them based on availability.
-Always be crisp, max 2 sentences.
-Following is the context:
-${syscontext}`;
+  Timings of the college 
+  8:30am-4:30pm
+ `
+  const systemPrompt =  `You are a security person for CEG guindy , 
+  you stop people and ask them why they are here , and also help them with details
+  always be crisp, only 2 sentences at max
+  following is the context:
+  ${syscontext}
+  `;
 
 
   const result = streamText({
